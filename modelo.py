@@ -67,8 +67,11 @@ class Playlist:
     def listagem(self):
         return self._programas
 
-    @property
-    def tamanho(self):
+    #
+    # De maneira análoga ao que foi feito com o método __getitem__ para tornar um objeto Playlist iterable, o método __len__ torna as instâncias
+    # de Playlist objetos sized. Com isso essas instâncias podem ser passadas diretamente como argumentos da função len().
+    #
+    def __len__(self):
         return len(self._programas)
 
     #
@@ -119,7 +122,7 @@ playlist_fim_de_semana = Playlist('Fim de Semana',filmes_e_series)
 # Playlist. Além disso, o tamanho da lista de programas e séries contidos na instância de Playlist também pode ser obtido diretamente através
 # da função len() sem a necessidade de existir um atributo específico para conter essa informação.
 #
-#print(f'A playlist {playlist_fim_de_semana.nome} possui {playlist_fim_de_semana.tamanho} filmes e/ou séries')
+print(f'A playlist {playlist_fim_de_semana.nome} possui {len(playlist_fim_de_semana)} filmes e/ou séries')
 
 for programa in playlist_fim_de_semana:
     print(programa)
