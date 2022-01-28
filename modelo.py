@@ -70,6 +70,16 @@ class Playlist:
     @property
     def tamanho(self):
         return len(self._programas)
+
+    #
+    # O método __getitem___ dá a um objeto do tipo Playlist a capacidade de se comportar parcialmente como um objeto list. Diferentemente do que
+    # aconteceu quando Playlist estendia diretamente de list, não são todas as funcionalidades de list que estarão presentes em Playlist.
+    # Com a implementação do método __getitem__ agora já é possível executar comandos for in e in diretamente em um objeto do tipo Playlist sem
+    # a necessidade de outras implementações.
+    # Essa técnica é conhecida como 'Duck typing'.
+    #
+    def __getitem__(self, item):
+        return self._programas[item]
 #
 # Bloco para teste das classes criadas acima.
 #
@@ -109,12 +119,12 @@ playlist_fim_de_semana = Playlist('Fim de Semana',filmes_e_series)
 # Playlist. Além disso, o tamanho da lista de programas e séries contidos na instância de Playlist também pode ser obtido diretamente através
 # da função len() sem a necessidade de existir um atributo específico para conter essa informação.
 #
-print(f'A playlist {playlist_fim_de_semana.nome} possui {playlist_fim_de_semana.tamanho} filmes e/ou séries')
+#print(f'A playlist {playlist_fim_de_semana.nome} possui {playlist_fim_de_semana.tamanho} filmes e/ou séries')
 
-for programa in playlist_fim_de_semana.listagem:
+for programa in playlist_fim_de_semana:
     print(programa)
 
 #
 # Outro recurso herdado de list é a capacidade de verificar se a playlist contém um determinado filme ou série
 #
-# print(f'O filme {profecia.nome} está na playlist {playlist_fim_de_semana.nome}? {profecia in playlist_fim_de_semana}')
+print(f'O filme {profecia.nome} está na playlist {playlist_fim_de_semana.nome}? {profecia in playlist_fim_de_semana}')
