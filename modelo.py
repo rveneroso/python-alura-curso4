@@ -36,7 +36,7 @@ class Filme(Programa):
         #
         super().__init__(nome,ano)
         self.duracao = duracao
-        
+
     #
     # O método __str__ é o equivalente ao toString() do Java.
     #
@@ -57,18 +57,46 @@ class Serie(Programa):
     #
     def __str__(self):
         return f'{self._nome} - {self.ano} - {self.temporadas} temporadas - {self._likes}'
+
+class Playlist:
+    def __init__(self, nome, programas):
+        self.nome = nome
+        self.programas = programas
+
+    def tamanho(self):
+        return len(self.programas)
+
 #
 # Bloco para teste das classes criadas acima.
 #
 profecia = Filme('a profecia', 1977, 120)
-profecia.dar_like()
-profecia.dar_like()
-#print(f'{profecia.nome} - {profecia.ano} - {profecia.duracao} : {profecia.likes}')
-
 bbt = Serie('the big bang theory',2007, 12)
-bbt.dar_like()
-#print(f'{bbt.nome} - {bbt.ano} - {bbt.temporadas} : {bbt.likes}')
+friends = Serie('Friends',1994,10)
+total_recall = Filme('o vingador do futuro', 1990, 113)
 
-filmes_e_series = [profecia, bbt]
-for programa in filmes_e_series:
+profecia.dar_like()
+profecia.dar_like()
+profecia.dar_like()
+profecia.dar_like()
+profecia.dar_like()
+total_recall.dar_like()
+total_recall.dar_like()
+total_recall.dar_like()
+
+
+bbt.dar_like()
+bbt.dar_like()
+bbt.dar_like()
+bbt.dar_like()
+bbt.dar_like()
+bbt.dar_like()
+bbt.dar_like()
+
+friends.dar_like()
+friends.dar_like()
+friends.dar_like()
+
+filmes_e_series = [profecia, bbt, friends,total_recall]
+playlist_fim_de_semana = Playlist('Fim de Semana',filmes_e_series)
+for programa in playlist_fim_de_semana.programas:
     print(programa)
