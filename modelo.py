@@ -46,8 +46,13 @@ class Serie(Programa):
 profecia = Filme('a profecia', 1977, 120)
 profecia.dar_like()
 profecia.dar_like()
-print(f'{profecia.nome} - {profecia.ano} - {profecia.duracao} : {profecia.likes}')
+#print(f'{profecia.nome} - {profecia.ano} - {profecia.duracao} : {profecia.likes}')
 
-bbt = Serie('the big bang theory',2007, 2019)
+bbt = Serie('the big bang theory',2007, 12)
 bbt.dar_like()
-print(f'{bbt.nome} - {bbt.ano} - {bbt.temporadas} : {bbt.likes}')
+#print(f'{bbt.nome} - {bbt.ano} - {bbt.temporadas} : {bbt.likes}')
+
+filmes_e_series = [profecia, bbt]
+for programa in filmes_e_series:
+    detalhes = programa.duracao if hasattr(programa, 'duracao') else programa.temporadas
+    print(f'{programa.nome} - {programa.ano} - {detalhes} : {programa.likes}')
