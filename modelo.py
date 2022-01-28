@@ -58,13 +58,18 @@ class Serie(Programa):
     def __str__(self):
         return f'{self._nome} - {self.ano} - {self.temporadas} temporadas - {self._likes}'
 
-#
-# A classe Playlist herda de list e consequentemente torna-se um objeto iterável com todos os recursos oferecidos por list.
-#
-class Playlist(list):
+class Playlist:
     def __init__(self, nome, programas):
         self.nome = nome
-        super().__init__(programas)
+        self._programas = programas
+
+    @property
+    def listagem(self):
+        return self._programas
+
+    @property
+    def tamanho(self):
+        return len(self._programas)
 #
 # Bloco para teste das classes criadas acima.
 #
@@ -104,12 +109,12 @@ playlist_fim_de_semana = Playlist('Fim de Semana',filmes_e_series)
 # Playlist. Além disso, o tamanho da lista de programas e séries contidos na instância de Playlist também pode ser obtido diretamente através
 # da função len() sem a necessidade de existir um atributo específico para conter essa informação.
 #
-print(f'A playlist {playlist_fim_de_semana.nome} possui {len(playlist_fim_de_semana)} filmes e/ou séries')
+print(f'A playlist {playlist_fim_de_semana.nome} possui {playlist_fim_de_semana.tamanho} filmes e/ou séries')
 
-for programa in playlist_fim_de_semana:
+for programa in playlist_fim_de_semana.listagem:
     print(programa)
 
 #
 # Outro recurso herdado de list é a capacidade de verificar se a playlist contém um determinado filme ou série
 #
-print(f'O filme {profecia.nome} está na playlist {playlist_fim_de_semana.nome}? {profecia in playlist_fim_de_semana}')
+# print(f'O filme {profecia.nome} está na playlist {playlist_fim_de_semana.nome}? {profecia in playlist_fim_de_semana}')
