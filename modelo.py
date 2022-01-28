@@ -46,8 +46,8 @@ class Serie(Programa):
 profecia = Filme('a profecia', 1977, 120)
 profecia.dar_like()
 profecia.dar_like()
-print(f'O filme {profecia.nome} foi lançado em {profecia.ano}, tem a duração de {profecia.duracao} minutos e já recebeu {profecia.likes} likes')
+print(f'{profecia.nome} - {profecia.ano} - {profecia.duracao} : {profecia.likes}')
 
 bbt = Serie('the big bang theory',2007, 2019)
 bbt.dar_like()
-print(f'A série {bbt.nome} foi lançada em {bbt.ano}, tem a duração de {bbt.temporadas} temporadas e já recebeu {bbt.likes} likes')
+print(f'{bbt.nome} - {bbt.ano} - {bbt.temporadas} : {bbt.likes}')
