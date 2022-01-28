@@ -24,18 +24,25 @@ class Programa:
 
 class Filme(Programa):
     def __init__(self, nome, ano, duracao):
-        self._nome = nome.title()
-        self.ano = ano
+        #
+        # No caso de uma chamada ao construtor da superclasse não há a necessidade de se passar o objeto self; o Python consegue identificar
+        # automaticamente qual instância está fazendo a chamada à superclasse.
+        #
+        super().__init__(nome,ano)
         self.duracao = duracao
-        self._likes = 0
 
 class Serie(Programa):
     def __init__(self, nome, ano, temporadas):
-        self._nome = nome.title()
-        self.ano = ano
+        #
+        # No caso de uma chamada ao construtor da superclasse não há a necessidade de se passar o objeto self; o Python consegue identificar
+        # automaticamente qual instância está fazendo a chamada à superclasse.
+        #
+        super().__init__(nome,ano)
         self.temporadas = temporadas
-        self._likes = 0
 
+#
+# Bloco para teste das classes criadas acima.
+#
 profecia = Filme('a profecia', 1977, 120)
 profecia.dar_like()
 profecia.dar_like()
